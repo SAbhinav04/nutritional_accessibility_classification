@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-food=pd.read_csv("food_dataset.csv")
+food=pd.read_csv("/Users/syedadnan/Downloads/Internship/Mini project /Mini Project 2/nutritional_accessibility_classification/dataset/food_dataset.csv")
 
 print(food.shape)
 print(food.info)
