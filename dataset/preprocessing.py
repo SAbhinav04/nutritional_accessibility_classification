@@ -32,3 +32,15 @@ print(food.duplicated().sum())
 print(food[food.duplicated()])
 food = food.drop_duplicates()
 food = food.drop(columns=["name","course"])
+print(food.corr(numeric_only=True))
+sns.heatmap(food.corr(numeric_only=True), annot=True, cmap="coolwarm")
+plt.show()
+print(food.head())
+print(food.info)
+print(food.describe())
+
+X = food.drop("meal_category", axis=1)
+y = food["meal_category"]
+
+X.to_csv("features_X.csv", index=False)
+y.to_csv("target_y.csv", index=False)
