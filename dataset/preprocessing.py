@@ -22,3 +22,13 @@ sns.boxplot(x=food["fat"])
 sns.boxplot(x=food["nutrition_score"])
 
 plt.show()
+
+upper = food["Prices"].quantile(0.95)
+lower = food["Prices"].quantile(0.05)
+food["Prices"] = np.clip(food["Prices"], lower, upper)
+
+print(food.nunique())
+print(food.duplicated().sum())
+print(food[food.duplicated()])
+food = food.drop_duplicates()
+food = food.drop(columns=["name","course"])
