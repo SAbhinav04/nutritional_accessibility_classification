@@ -30,7 +30,12 @@ metrics_summary = pd.DataFrame(
         ("Macro Precision", precision_score(y_test, predictions, average="macro")),
         ("Macro Recall", recall_score(y_test, predictions, average="macro")),
         ("Macro F1", f1_score(y_test, predictions, average="macro")),
+        ("Weighted Precision", precision_score(y_test, predictions, average="weighted")),
+        ("Weighted Recall", recall_score(y_test, predictions, average="weighted")),
         ("Weighted F1", f1_score(y_test, predictions, average="weighted")),
+        ("Micro Precision", precision_score(y_test, predictions, average="micro")),
+        ("Micro Recall", recall_score(y_test, predictions, average="micro")),
+        ("Micro F1", f1_score(y_test, predictions, average="micro")),
     ],
     columns=["metric", "score"],
 )
@@ -84,3 +89,36 @@ plt.title("Random Forest Normalized Confusion Matrix")
 plt.tight_layout()
 plt.savefig(BASE_DIR / "random_forest_confusion_matrix_normalized.png")
 plt.close()
+
+print("=" * 70)
+print("RANDOM FOREST EVALUATION - DETAILED METRICS")
+print("=" * 70)
+
+print("\n" + "─" * 70)
+print("OVERALL METRICS")
+print("─" * 70)
+print(metrics_summary.to_string(index=False))
+
+print("\n" + "=" * 70)
+print("PRECISION, RECALL, and F1-SCORE BREAKDOWN")
+print("=" * 70)
+
+# Extract and display by averaging method
+macro_metrics = metrics_summary[metrics_summary['metric'].str.contains('Macro')]
+weighted_metrics = metrics_summary[metrics_summary['metric'].str.contains('Weighted')]
+micro_metrics = metrics_summary[metrics_summary['metric'].str.contains('Micro')]
+
+print("\n📊 Macro Average (treats all classes equally):")
+print(macro_metrics.to_string(index=False))
+
+print("\n📊 Weighted Average (considers class distribution):")
+print(weighted_metrics.to_string(index=False))
+
+print("\n📊 Micro Average (global calculation):")
+print(micro_metrics.to_string(index=False))
+
+print("\n" + "─" * 70)
+print("DETAILED CLASSIFICATION REPORT")
+print("─" * 70)
+print(report_df.to_string())
+print("=" * 70)
