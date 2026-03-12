@@ -1,0 +1,8 @@
+,precision,recall,f1-score,support
+Affordable_Nutritious,1.0,1.0,1.0,3573.0
+Basic_Meal,1.0,1.0,1.0,4058.0
+Expensive_Nutritious,1.0,1.0,1.0,7912.0
+Low_Nutrition,1.0,1.0,1.0,9189.0
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,1.0,1.0,24732.0
+weighted avg,1.0,1.0,1.0,24732.0

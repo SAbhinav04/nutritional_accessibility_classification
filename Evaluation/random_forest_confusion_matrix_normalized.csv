@@ -1,0 +1,5 @@
+,Affordable_Nutritious,Basic_Meal,Expensive_Nutritious,Low_Nutrition
+Affordable_Nutritious,1.0,0.0,0.0,0.0
+Basic_Meal,0.0,1.0,0.0,0.0
+Expensive_Nutritious,0.0,0.0,1.0,0.0
+Low_Nutrition,0.0,0.0,0.0,1.0
